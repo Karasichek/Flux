@@ -52,7 +52,7 @@ fun Settings(
                 title = { Text(stringResource(R.string.Settings)) },
             )
         },
-    ){ innerPadding ->
+    ) { innerPadding ->
         Box(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
             LazyColumn(
                 Modifier.fillMaxSize().padding(horizontal = 12.dp),
@@ -72,7 +72,7 @@ fun Settings(
                                 launchSingleTop = true
                                 restoreState = true
                             }
-                        })
+                    })
                 }
 
                 item {
@@ -86,7 +86,7 @@ fun Settings(
                                 launchSingleTop = true
                                 restoreState = true
                             }
-                        })
+                    })
                 }
 
                 item {
@@ -116,7 +116,7 @@ fun Settings(
                                 launchSingleTop = true
                                 restoreState = true
                             }
-                        })
+                    })
                 }
 
                 item {
@@ -143,7 +143,7 @@ fun Settings(
                                 launchSingleTop = true
                                 restoreState = true
                             }
-                        })
+                    })
                 }
 
                 item {
@@ -157,7 +157,7 @@ fun Settings(
                                 launchSingleTop = true
                                 restoreState = true
                             }
-                        })
+                    })
                 }
 
                 item {
@@ -170,7 +170,7 @@ fun Settings(
                         last = true
                     ) {
                         val intent =
-                            Intent(Intent.ACTION_VIEW, "https://coff.ee/chindaronit".toUri())
+                        Intent(Intent.ACTION_VIEW, "https://t.me/bredniTM".toUri())
                         context.startActivity(intent)
                     }
                 }
@@ -179,8 +179,8 @@ fun Settings(
             BottomBar(
                 navController = navController,
                 modifier = Modifier
-                    .align(Alignment.BottomCenter)
-                    .padding(bottom = 16.dp)
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 16.dp)
             )
         }
     }

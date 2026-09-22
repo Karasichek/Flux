@@ -35,8 +35,8 @@ fun Contact(navController: NavController, radius: Int) {
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
-                .padding(innerPadding)
-                .padding(16.dp, 8.dp, 16.dp)
+            .padding(innerPadding)
+            .padding(16.dp, 8.dp, 16.dp)
         ) {
             item {
                 SettingOption(
@@ -48,7 +48,7 @@ fun Contact(navController: NavController, radius: Int) {
                     linkClicked = {
                         val intent = Intent(
                             Intent.ACTION_VIEW,
-                            "https://github.com/chindaronit/Flux/discussions/61".toUri()
+                            "https://github.com/Karasichek/Flux/discussions/61".toUri()
                         )
                         context.startActivity(intent)
                     }
@@ -65,7 +65,7 @@ fun Contact(navController: NavController, radius: Int) {
                     linkClicked = {
                         val intent = Intent(
                             Intent.ACTION_VIEW,
-                            "https://github.com/chindaronit/Flux/issues".toUri()
+                            "https://github.com/Karasichek/Flux/issues".toUri()
                         )
                         context.startActivity(intent)
                     }

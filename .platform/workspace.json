@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "projects": [
+    {
+      "id": "Flux",
+      "name": "Flux",
+      "root": "",
+      "buildSystem": "gradle-compat",
+      "settings": {},
+      "modules": [
+        {
+          "id": "app",
+          "name": "app",
+          "dir": "app"
+        }
+      ],
+      "libraries": []
+    }
+  ]
+}
