@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Flux</string>
-
+?:
     <!-- Authentication -->
-    <string name="Auth_with_Biometric">Аутентификация с помощью биометрии</string>
-    <string name="Auth_Error">Ошибка: аутентификация не удалась</string>
-    <string name="Biometric_Title">Биометрическая аутентификация</string>
-    <string name="Biometric_Subtitle">Используйте отпечаток пальца или лицо для аутентификации</string>
+    <string name="Auth_with_Biometric">Вход с помощью биометрии</string>
+    <string name="Auth_Error">Ошибка: он удалось войти</string>
+    <string name="Biometric_Title">Вход с помощью биометрии</string>
+    <string name="Biometric_Subtitle">Используйте отпечаток пальца или лицо для входа</string>
     <string name="Biometric_Cancel">Отмена</string>
 
     <!-- Common UI Elements -->
@@ -41,16 +41,16 @@
     <string name="Settings">Настройки</string>
 
     <!-- Settings - Customize -->
-    <string name="Customize">Настроить</string>
-    <string name="Customize_desc">Тема • Форма • Контраст</string>
+    <string name="Customize">Внешний вид</string>
+    <string name="Customize_desc">Темы • Формы • Контрастный резим</string>
     <string name="System_theme">Системная тема</string>
     <string name="System_theme_desc">Автоматически адаптируется к теме устройства</string>
     <string name="Light_theme">Светлая тема</string>
     <string name="Light_theme_desc">Переключиться на светлую тему</string>
     <string name="Dark_theme">Тёмная тема</string>
     <string name="Dark_theme_desc">Переключиться на тёмную тему</string>
-    <string name="Dynamic_theme">Динамическая тема</string>
-    <string name="Dynamic_theme_desc">Автоматически адаптируется к фону</string>
+    <string name="Dynamic_theme">Динамические цвета</string>
+    <string name="Dynamic_theme_desc">Подстраивает цвета темы под цвет обоев</string>
     <string name="Amoled_theme">AMOLED-тема</string>
     <string name="Amoled_theme_desc">Использовать чёрный цвет для фона</string>
     <string name="Themes">Темы</string>
@@ -107,7 +107,7 @@
     <string name="Screen_Protection">Защита экрана</string>
     <string name="Screen_Protection_Desc">Отключить скриншоты</string>
     <string name="App_Lock">Блокировка приложения</string>
-    <string name="App_Lock_desc">Аутентификация по отпечатку пальца</string>
+    <string name="App_Lock_desc">Вход по отпечатку пальца</string>
     <string name="Encrypt">Шифровать</string>
     <string name="Encrypt_Desc">Шифровать данные при резервном копировании</string>
 
@@ -138,7 +138,7 @@
     <string name="Build_type">Тип сборки</string>
     <string name="Build_version">Версия сборки</string>
     <string name="Developer">Разработчик</string>
-    <string name="Developer_Name">Ronit Chinda</string>
+    <string name="Developer_Name">Karasichek</string>
     <string name="Source_Code">Исходный код</string>
     <string name="Github_Repository">Репозиторий GitHub</string>
     <string name="license">Лицензия</string>
@@ -348,7 +348,7 @@
         Показывать номера строк в редакторе
     </string>
 
-    <string name="markdown_lint_title">Markdown-линт</string>
+    <string name="markdown_lint_title">Проверка синтаксиса</string>
     <string name="markdown_lint_description">
         Формат и синтаксис Markdown будут проверены
     </string>
@@ -362,7 +362,7 @@
         Flux — это современное Android-приложение для продуктивности, полностью созданное с использованием Compose.\n
         Оно позволяет создавать, редактировать и удалять рабочие пространства с шаблонами, такими как Заметки, Привычки, Дневник, Задачи, События и др., а также поддерживает расширенные функции: поиск и замена, шаблоны заметок, локальный импорт изображений/видео/аудио, Markdown, формулы LaTeX и диаграммы Mermaid.\n
         Скачайте и попробуйте сейчас:\n
-        - GitHub:  https://github.com/chindaronit/Flux/releases\n
+        - GitHub:  https://github.com/Karasichek/Flux/releases\n
         - F-Droid: https://f-droid.org/packages/com.flux/
     </string>
 
@@ -385,7 +385,7 @@
     <string name="mode_title">Режим</string>
     <string name="mode_description">Обычный • Компактный</string>
 
-    <string name="made_in_india">Сделано в Индии</string>
+    <string name="made_in_india">Сделано в России</string>
 
     <string name="compact_mode">Компактный режим</string>
     <string name="default_mode">Режим по умолчанию</string>
@@ -583,7 +583,7 @@
     <string name="files_progress">%1$d / %2$d файлов</string>
 
     <string name="welcome_back">С возвращением в</string>
-    <string name="authenticate">Аутентификация</string>
+    <string name="authenticate">Вход</string>
     <string name="private_secure">Конфиденциально и безопасно</string>
     <string name="biometric_unlock_description">Используйте биометрию устройства для безопасной разблокировки данных Flux.</string>
     <string name="biometric_data_never_leaves">Ваши биометрические данные никогда не покидают устройство</string>

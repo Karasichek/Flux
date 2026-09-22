@@ -42,8 +42,8 @@ fun About(navController: NavController, radius: Int) {
     ) { innerPadding ->
         LazyColumn(
             modifier = Modifier
-                .padding(innerPadding)
-                .padding(16.dp, 8.dp, 16.dp),
+            .padding(innerPadding)
+            .padding(16.dp, 8.dp, 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             item {
@@ -110,7 +110,7 @@ fun About(navController: NavController, radius: Int) {
                     linkClicked = {
                         val intent = Intent(
                             Intent.ACTION_VIEW,
-                            "https://github.com/chindaronit/Flux".toUri()
+                            "https://github.com/Karasichek/Flux".toUri()
                         )
                         context.startActivity(intent)
                     }
@@ -128,7 +128,7 @@ fun About(navController: NavController, radius: Int) {
                     linkClicked = {
                         val intent = Intent(
                             Intent.ACTION_VIEW,
-                            "https://github.com/chindaronit/Flux/blob/master/Guide.md".toUri()
+                            "https://github.com/Karasichek/Flux/blob/master/Guide.md".toUri()
                         )
                         context.startActivity(intent)
                     }
@@ -145,7 +145,7 @@ fun About(navController: NavController, radius: Int) {
                     linkClicked = {
                         val intent = Intent(
                             Intent.ACTION_VIEW,
-                            "https://github.com/chindaronit/Flux/blob/master/PRIVACY_POLICY.md".toUri()
+                            "https://github.com/Karasichek/Flux/blob/master/PRIVACY_POLICY.md".toUri()
                         )
                         context.startActivity(intent)
                     }
