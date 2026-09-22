@@ -99,37 +99,7 @@ fun NoteDetailsTopBar(
     onCloneNote: () -> Unit
 ) {
     CenterAlignedTopAppBar(
-        title = {
-            Row {
-                Box(
-                    modifier = Modifier
-                        .background(
-                            if (!isReadView) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceColorAtElevation(
-                                6.dp
-                            ),
-                            RoundedCornerShape(bottomStart = 32.dp, topStart = 32.dp)
-                        )
-                        .clip(RoundedCornerShape(bottomStart = 32.dp, topStart = 32.dp))
-                        .clickable { onEditClick() }
-                        .padding(8.dp)
-                ) {
-                    Icon(Icons.Default.Edit, null, tint= if(!isReadView) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary)
-                }
-                Spacer(Modifier.width(1.dp))
-                Box(
-                    modifier = Modifier
-                        .background(
-                            if (isReadView) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceColorAtElevation(
-                                6.dp
-                            ),
-                            RoundedCornerShape(bottomEnd = 32.dp, topEnd = 32.dp)
-                        )
-                        .clip(RoundedCornerShape(bottomEnd = 32.dp, topEnd = 32.dp))
-                        .clickable { onReadClick() }
-                        .padding(8.dp)
-                ) { Icon(Icons.Default.RemoveRedEye, null, tint=if(isReadView) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary) }
-            }
-        },
+        title = { EditorModeSwitcher(isReadView, onEditClick, onReadClick) },
         colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow),
         navigationIcon = { IconButton(onClick = onBackPressed) { Icon(Icons.AutoMirrored.Default.ArrowBack, null) } },
         actions = {
@@ -160,37 +130,7 @@ fun JournalDetailsTopBar(
     onCloneNote: () -> Unit
 ) {
     CenterAlignedTopAppBar(
-        title = {
-            Row {
-                Box(
-                    modifier = Modifier
-                        .background(
-                            if (!isReadView) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceColorAtElevation(
-                                6.dp
-                            ),
-                            RoundedCornerShape(bottomStart = 32.dp, topStart = 32.dp)
-                        )
-                        .clip(RoundedCornerShape(bottomStart = 32.dp, topStart = 32.dp))
-                        .clickable { onEditClick() }
-                        .padding(8.dp)
-                ) {
-                    Icon(Icons.Default.Edit, null, tint= if(!isReadView) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary)
-                }
-                Spacer(Modifier.width(1.dp))
-                Box(
-                    modifier = Modifier
-                        .background(
-                            if (isReadView) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceColorAtElevation(
-                                6.dp
-                            ),
-                            RoundedCornerShape(bottomEnd = 32.dp, topEnd = 32.dp)
-                        )
-                        .clip(RoundedCornerShape(bottomEnd = 32.dp, topEnd = 32.dp))
-                        .clickable { onReadClick() }
-                        .padding(8.dp)
-                ) { Icon(Icons.Default.RemoveRedEye, null, tint=if(isReadView) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary) }
-            }
-        },
+        title = { EditorModeSwitcher(isReadView, onEditClick, onReadClick) },
         colors = TopAppBarDefaults.topAppBarColors(containerColor = MaterialTheme.colorScheme.surfaceContainerLow),
         navigationIcon = { IconButton(onClick = onBackPressed) { Icon(Icons.AutoMirrored.Default.ArrowBack, null) } },
         actions = {
@@ -633,5 +573,55 @@ fun SpaceSearchBar(
                 )
             }
         }
+    }
+}
+
+
+@Composable
+private fun EditorModeSwitcher(
+    isReadView: Boolean,
+    onEditClick: () -> Unit,
+    onReadClick: () -> Unit
+) {
+    val shape = RoundedCornerShape(50)
+    Row(
+        modifier = Modifier
+            .clip(shape)
+            .background(MaterialTheme.colorScheme.surfaceContainerHighest)
+            .padding(3.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        EditorModeButton(Icons.Default.Edit, "Edit", !isReadView, onEditClick)
+        EditorModeButton(Icons.Default.RemoveRedEye, "Preview", isReadView, onReadClick)
+    }
+}
+
+@Composable
+private fun EditorModeButton(
+    icon: ImageVector,
+    label: String,
+    selected: Boolean,
+    onClick: () -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .clip(RoundedCornerShape(50))
+            .background(if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceContainerHighest)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 10.dp, vertical = 6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(5.dp)
+    ) {
+        Icon(
+            imageVector = icon,
+            contentDescription = label,
+            modifier = Modifier.size(16.dp),
+            tint = if (selected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant
+        )
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelMedium,
+            color = if (selected) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant
+        )
     }
 }

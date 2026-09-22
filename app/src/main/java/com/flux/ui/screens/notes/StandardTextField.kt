@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.input.TextFieldState
+import androidx.compose.foundation.text.input.delete
+import androidx.compose.foundation.text.input.insert
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
@@ -44,6 +46,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.flux.R
 import com.flux.other.MarkdownLint
+import com.flux.other.markdownListContinuation
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlin.math.PI
@@ -76,12 +79,41 @@ fun StandardTextField(
         label = "wave-phase"
     )
     var lintErrors by remember { mutableStateOf(emptyList<Pair<Int, Int>>()) }
+    var lastObservedText by remember { mutableStateOf(state.text.toString()) }
 
     LaunchedEffect(state.text, isLintActive) {
         withContext(Dispatchers.Default) {
             lintErrors =
                 if (isLintActive) MarkdownLint().validate(state.text.toString())
                 else emptyList()
+        }
+    }
+
+    // Continue Markdown lists after Enter while keeping the rule independent from Compose.
+    // The length/selection guard prevents the automatic edit from recursively firing.
+    LaunchedEffect(state.text, readMode) {
+        if (!readMode) {
+            val currentText = state.text.toString()
+            val cursor = state.selection.start
+            val insertedNewline = currentText.length == lastObservedText.length + 1 &&
+                cursor == state.selection.end && cursor > 0 && currentText[cursor - 1] == '\n'
+
+            if (insertedNewline) {
+                markdownListContinuation(currentText, cursor)?.let { continuation ->
+                    state.edit {
+                        if (continuation.removeExistingPrefix) {
+                            val lineStart = currentText.lastIndexOf('\n', cursor - 2)
+                                .let { if (it < 0) 0 else it + 1 }
+                            delete(lineStart, cursor)
+                        } else {
+                            insert(cursor, continuation.prefix)
+                        }
+                    }
+                }
+            }
+            lastObservedText = state.text.toString()
+        } else {
+            lastObservedText = state.text.toString()
         }
     }
 
