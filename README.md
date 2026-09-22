@@ -21,7 +21,7 @@
 
 **A lightweight Android productivity app built with Material 3.**
 
-[<img src=".github/get-github.png" alt="Get it on GitHub" height="55">](https://github.com/chindaronit/Flux/releases/)
+[<img src=".github/get-github.png" alt="Get it on GitHub" height="55">](https://github.com/Karasichek/Flux/releases/)
 [<img src=".github/get_f_droid.png" alt="Get it on f-droid" height="55">](https://f-droid.org/packages/com.flux/)
 [<img src=".github/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="55">](https://apt.izzysoft.de/fdroid/index/apk/com.flux)
 
@@ -102,14 +102,15 @@ an issue. If you want to contribute code directly to this project, you can creat
 ## Credits
 
 <div align="center">
-<a href="https://github.com/chindaronit/Flux/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=chindaronit/Flux" width="200"/>
+<a href="https://github.com/Karasichek/Flux/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=Karasichek/Flux" width="200"/>
 </a>
 
 </div>
 
 ## ⚠️ License
 
+Forked project, original credits:
 ```text
 Flux
 
@@ -128,7 +129,3 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 ```
-
-<div align="center">
-  <img src=".github/india.jpg" alt="India" height="30" style="border-radius:50%; vertical-align:middle;"> MADE IN INDIA
-</div>
